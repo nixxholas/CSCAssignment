@@ -18,7 +18,7 @@ namespace CSCAssignment
             Response.Cache.SetCacheability(HttpCacheability.Public);
             Response.Cache.SetValidUntilExpires(true);
             //The next few lines change the content type to plain text, get the current time, and writes the output:
-            Response.ContentType = "text/plain";
+            //Response.ContentType = "text/plain";
             Response.Write("The time on the server is: " + DateTime.Now.ToString()); Response.Write("<br>");
             Response.Write("Hi " + Request.QueryString["myName"]);
         }
