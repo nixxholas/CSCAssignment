@@ -246,6 +246,13 @@
       <DependentUpon>ServerTime.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="trackUser.aspx.cs">
+      <DependentUpon>trackUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trackUser.aspx.designer.cs">
+      <DependentUpon>trackUser.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -254,9 +261,12 @@
     <Content Include="Excercise1.html" />
     <Content Include="Excercise2.html" />
     <Content Include="Excercise3.html" />
+    <Content Include="Excercise5.html" />
+    <Content Include="Excercise6.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="infoforXMLHttpRequest.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -293,6 +303,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="ServerTime.aspx" />
+    <Content Include="trackUser.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

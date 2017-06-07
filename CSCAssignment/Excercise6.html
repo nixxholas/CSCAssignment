@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script language="javascript">
+        function display_c() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
+
+        function display_ct() {
+            var strcount
+            var x = new Date()
+            // changing the display to UTC string
+            var x1 = x.toUTCString();
+            //formatting the display
+            document.getElementById('ct').style.fontSize = '20px';
+            //set the fontcolr to '#0030c0';
+            document.getElementById('ct').style.color = '#0030c0';
+            document.getElementById('ct').innerHTML = "client side time:  " + x1;
+            //display server time
+            loadXMLDoc();
+            display_c();
+        }
+
+        function loadXMLDoc() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                    /* the innerHTML is between <div id="myDiv">-------</div> */
+
+                    document.getElementById("myDiv").innerHTML = "server side time: " + '<span style="color:blue">' + xmlhttp.responseText + "</span>";
+                }
+            }
+            xmlhttp.open("GET", "ServerTime.aspx?myName=CSC", true);
+
+            /* we are using GET, null in the body */
+
+            xmlhttp.send(null);
+        }
+    </script>
+
+</head>
+<body onload="display_ct()" ;>
+    <span id='ct'></span>
+    <br />
+    HTTP Request
+
+    <form action="ServerTime.aspx" method="GET">
+        <table>
+            <tr>
+                <td>Send Request to ServerTime.aspx </td>
+                <td><input "height:12px;width:128px; alt="search" type="text" name="myName" size="20" value="" /></td>
+                <td>
+                    <input id="Submit1" type="submit" value="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="serverTime"></div>
+    <button type="button" onclick="loadXMLDoc()">Request data</button>
+    <div id="myDiv"></div>
+</body>
+</html>
