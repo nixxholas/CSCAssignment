@@ -229,6 +229,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Geolocation.aspx.cs">
+      <DependentUpon>Geolocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geolocation.aspx.designer.cs">
+      <DependentUpon>Geolocation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -265,6 +272,7 @@
     <Content Include="Excercise6.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Geolocation.aspx" />
     <Content Include="Global.asax" />
     <Content Include="infoforXMLHttpRequest.txt" />
     <Content Include="Scripts\bootstrap.js" />
