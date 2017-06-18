@@ -49,7 +49,7 @@
         <div id="mapholder"></div>
 
         <div>
-            <script type="text/javascript" src="http://j.maxmind.com/app/geoip.js"></script>
+            <script type="text/javascript" src="//js.maxmind.com/js/geoip.js"></script>
             <br />
             Country Code:
             <script type="text/javascript">document.write(geoip_country_code());</script>
