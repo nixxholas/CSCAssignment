@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ProductsV2Controller.cs" />
     <Compile Include="Controllers\ProductsV3Controller.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +191,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="bookResultXpath.html" />
+    <Content Include="books.xml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
