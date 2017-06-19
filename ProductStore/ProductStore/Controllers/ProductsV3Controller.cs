@@ -1,4 +1,5 @@
-﻿using ProductStore.Models;
+﻿using ProductStore.Filters;
+using ProductStore.Models;
 using ProductStore.Repositories;
 using ProductStore.Repositories.Interfaces;
 using System;
@@ -66,6 +67,7 @@ namespace ProductStore.Controllers
         //But according to the HTTP/1.1 protocol, when a POST request results in the creation of a resource, the server should reply with status 201 (Created).
         //Location: When the server creates a resource, it should include the URI of the new resource in the Location header of the response.
         [HttpPost]
+        [ValidateModel]
         [Route("api/v3/products")]
         public HttpResponseMessage PostProduct(Product item)
         {
