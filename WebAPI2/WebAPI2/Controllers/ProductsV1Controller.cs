@@ -21,7 +21,8 @@ namespace WebAPI2.Controllers
         //code for version 1
         [HttpGet]
         [Route("api/v1/products/version")] //http://localhost:9000/api/v1/products/version 
-        public string[] GetVersion() {
+        public string[] GetVersion()
+        {
             return new string[] { "hello", "version 2", "2" };
         }
 
@@ -49,15 +50,17 @@ namespace WebAPI2.Controllers
         }
 
         [HttpGet]
-        [Route("api/v1/products/{id:int:min(2)}")] //http://localhost:9000/api/v1/products/3 
-        public IHttpActionResult  GetProduct( int  id) {
+        [Route("api/v1/products/{id:int}")] //http://localhost:9000/api/v1/products/3 
+        public IHttpActionResult GetProduct(int id)
+        {
             var product = products.FirstOrDefault((p) => p.Id == id);
-            if (product ==  null ) {
-                return  NotFound();
+            if (product == null)
+            {
+                return NotFound();
             }
 
             return Ok(product);
-        } 
-        
+        }
+
     }
 }
