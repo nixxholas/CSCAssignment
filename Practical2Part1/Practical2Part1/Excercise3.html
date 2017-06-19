@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script language="javascript">
+function display_c() {
+var refresh = 1000; // Refresh rate in milli seconds mytime = setTimeout('display_ct()', refresh)
+}
+function display_ct() {
+var strcount
+var x = new Date()
+// changing the display to UTC string
+var x1 = x.toUTCString();
+//formatting the display document.getElementById('ct').style.fontSize = '20px'; //set the fontcolr to '#0030c0'; document.getElementById('ct').style.color = '#0030c0'; document.getElementById('ct').innerHTML = x1;
+tt = display_c(); }
+    </script>
+</head>
+<body onload="display_ct()" ;>
+    <span id='ct'></span>
+    <br />
+    HTTP Request
+    <form action="ServerTime.aspx" method="post">
+        <table>
+            <tr>
+                <td>Send Request to ServerTime.aspx </td>
+                <td><input height:12px;width:128px;" alt="search" type="text" name="myName" size="20" value="" /></td>
+                <td>
+                    <input id="Submit1" type="submit" value="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>

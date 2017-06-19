@@ -1,0 +1,6 @@
+﻿<div style=background-color: lightgrey;width: 300px; padding: 25px; border: 25px solid
+navy; margin: 25px;>With the <br> XMLHttpRequest object</br> you can update parts of a
+web page, without reloading the whole page.
+The XMLHttpRequest object is used to exchange data with a server behind the scenes</div>
+<iframe width="560" height="315" src="//www.youtube.com/embed/gpx2yNivuUY"
+frameborder="0" allowfullscreen></iframe>
