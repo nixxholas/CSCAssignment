@@ -291,6 +291,19 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="SearchTalent\images\Barot_Bellingham_tn.jpg" />
+    <Content Include="SearchTalent\images\Constance_Smith_tn.jpg" />
+    <Content Include="SearchTalent\images\Hassum_Harrod_tn.jpg" />
+    <Content Include="SearchTalent\images\Hillary_Goldwynn_tn.jpg" />
+    <Content Include="SearchTalent\images\Jennifer_Jerome_tn.jpg" />
+    <Content Include="SearchTalent\images\Jonathan_Ferrar_tn.jpg" />
+    <Content Include="SearchTalent\images\LaVonne_LaRue_tn.jpg" />
+    <Content Include="SearchTalent\images\Riley_Rewington_tn.jpg" />
+    <Content Include="SearchTalent\images\Xhou_Ta_tn.jpg" />
+    <Content Include="SearchTalent\index.html" />
+    <Content Include="SearchTalent\jquery.js" />
+    <Content Include="SearchTalent\mystyle.css" />
+    <Content Include="SearchTalent\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -305,6 +318,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="SearchTalent\data.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
