@@ -1,4 +1,5 @@
-﻿using ProductStore.Models;
+﻿using ProductStore.Filters;
+using ProductStore.Models;
 using ProductStore.Repositories;
 using ProductStore.Repositories.Interfaces;
 using System;
@@ -16,15 +17,16 @@ namespace ProductStore.Controllers
     public class ProductsV2Controller : ApiController
     {
         static readonly IProductRepository repository = new ProductRepository();
-
-        //code for version 1
+        
         [HttpGet]
+        [Route("api/v2/products/version")]
         public string[] GetVersion()
         {
             return new string[] { "hello", "version 2", "2" };
         }
 
         [HttpGet]
+        [Route("api/v2/products")]
         //http://localhost:9000/api/v1/products/message?name1=ji&name2=jii1&name3=ji3
         public HttpResponseMessage GetMultipleNames(String name1, string name2, string name3)
         {
@@ -40,12 +42,14 @@ namespace ProductStore.Controllers
         }
 
         [HttpGet]
+        [Route("api/v2/products")]
         public IEnumerable<Product> GetAllProducts()
         {
             return repository.GetAll().ToList();
         }
 
         [HttpGet]
+        [Route("api/v2/products/{id:int}")]
         public IHttpActionResult GetProduct(int id)
         {
             var product = repository.Get(id);
@@ -58,27 +62,34 @@ namespace ProductStore.Controllers
             return Ok(product);
         }
 
-        [HttpPost]
-        public Product PostProductDeprecated(Product item)
-        {
-            item = repository.Add(item);
+        //[HttpPost]
+        //public Product PostProductDeprecated(Product item)
+        //{
+        //    item = repository.Add(item);
 
-            return item;
-        }
+        //    return item;
+        //}
 
         [HttpPost]
-        public HttpResponseMessage PostProduct(Product item)
+        [Route("api/v2/products")]
+        public IHttpActionResult PostProduct(Product item)
         {
             item = repository.Add(item);
             var response = Request.CreateResponse<Product>(HttpStatusCode.Created, item);
 
             string uri = Url.Link("DefaultApi", new { id = item.Id });
-            response.Headers.Location = new Uri(uri);
-            return response;
+
+            if (uri != null)
+            {
+                response.Headers.Location = new Uri(uri);
+            }
+
+            return Ok();
         }
 
         [HttpPut]
-        public void PutProduct(int id, Product product)
+        [Route("api/v2/products/{id:int}")]
+        public void PutProduct(int id, [FromBody]Product product)
         {
             product.Id = id;
 
@@ -88,7 +99,8 @@ namespace ProductStore.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpDelete]
+        [Route("api/v2/products/{id:int}")]
         public void DeleteProduct(int id)
         {
             Product item = repository.Get(id);

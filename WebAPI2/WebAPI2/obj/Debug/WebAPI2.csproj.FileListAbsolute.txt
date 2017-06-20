@@ -102,3 +102,6 @@
 \\Mac\Home\Documents\Visual Studio 2017\Projects\CSCAssignment\WebAPI2\WebAPI2\obj\Debug\WebAPI2.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\Visual Studio 2017\Projects\CSCAssignment\WebAPI2\WebAPI2\obj\Debug\WebAPI2.dll
 \\Mac\Home\Documents\Visual Studio 2017\Projects\CSCAssignment\WebAPI2\WebAPI2\obj\Debug\WebAPI2.pdb
+\\Mac\Home\Documents\Visual Studio 2017\Projects\CSCAssignment\WebAPI2\WebAPI2\bin\System.Web.Cors.dll
+\\Mac\Home\Documents\Visual Studio 2017\Projects\CSCAssignment\WebAPI2\WebAPI2\bin\System.Web.Http.Cors.dll
+\\Mac\Home\Documents\Visual Studio 2017\Projects\CSCAssignment\WebAPI2\WebAPI2\bin\System.Web.Http.Cors.xml

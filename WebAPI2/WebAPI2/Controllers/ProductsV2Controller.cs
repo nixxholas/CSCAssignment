@@ -6,29 +6,25 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using WebAPI2.Models;
+using WebAPI2.Repositories;
+using WebAPI2.Repositories.Interfaces;
 
 namespace WebAPI2.Controllers
 {
-    public class ProductsV1Controller : ApiController
+    public class ProductsV2Controller : ApiController
     {
-        // static readonly IProductRepository repository = new ProductRepository();
-        Product[] products = new Product[] {
-            new Product  { Id = 1, Name =  "Tomato Soup" , Category = "Groceries" , Price = 1 },
-            new Product  { Id = 2, Name =  "Yo-yo" , Category =  "Toys" , Price = 3.75M },
-            new Product  { Id = 3, Name =  "Hammer" , Category =  "Hardware" , Price = 16.99M }
-        };
-
-        //code for version 1
+        static readonly IProductRepository repository = new ProductRepository();
+        
         [HttpGet]
-        [Route("api/v1/products/version")] //http://localhost:9000/api/v1/products/version 
+        [Route("api/v2/products/version")] //http://localhost:9000/api/v1/products/version 
         public string[] GetVersion()
         {
-            return new string[] { "hello", "version 1", "1" };
+            return new string[] { "hello", "version 2", "2" };
         }
 
         [HttpGet]
-        [Route("api/v1/products/message/")]
-        //http://localhost:9000/api/v1/products/message?name1=ji&name2=jii1&name3=ji3
+        [Route("api/v2/products/message/")]
+        //http://localhost:9000/api/v2/products/message?name1=ji&name2=jii1&name3=ji3
         public HttpResponseMessage GetMultipleNames(String name1, string name2, string name3)
         {
             var response = new HttpResponseMessage();
@@ -43,17 +39,18 @@ namespace WebAPI2.Controllers
         }
 
         [HttpGet]
-        [Route("api/v1/products")] //http://localhost:9000/api/v1/products 
+        [Route("api/v2/products")] //http://localhost:9000/api/v1/products 
         public IEnumerable<Product> GetAllProducts()
         {
-            return products;
+            return repository.GetAll();
         }
 
         [HttpGet]
-        [Route("api/v1/products/{id:int}")] //http://localhost:9000/api/v1/products/3 
+        [Route("api/v2/products/{id:int}")] //http://localhost:9000/api/v1/products/3 
         public IHttpActionResult GetProduct(int id)
         {
-            var product = products.FirstOrDefault((p) => p.Id == id);
+            var product = repository.Get(id);
+
             if (product == null)
             {
                 return NotFound();
@@ -62,5 +59,17 @@ namespace WebAPI2.Controllers
             return Ok(product);
         }
 
+        //[HttpGet]
+        //[Route("api/v2/products")] //http://localhost:9000/api/v1/products?category=nice
+        //public IHttpActionResult GetProduct(string category)
+        //{
+
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(product);
+        //}
     }
 }
