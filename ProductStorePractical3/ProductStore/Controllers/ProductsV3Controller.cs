@@ -43,16 +43,16 @@ namespace ProductStore.Controllers
         //Type of the parameter id must be an integer.
         //id should be greater than 2.  
         //http://localhost:9000/api/v3/products/1 404 error code
-        [HttpGet]
-        [Route("api/v3/products/{id:int:min(2)}", Name = "getProductByIdv3")]
-        public Product retrieveProductfromRepository(int id)
-        {
-            Product item = repository.Get(id); if (item == null)
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
-            return item;
-        }
+        //[HttpGet]
+        //[Route("api/v3/products/{id:int:min(2)}", Name = "getProductByIdv3")]
+        //public Product retrieveProductfromRepository(int id)
+        //{
+        //    Product item = repository.Get(id); if (item == null)
+        //    {
+        //        throw new HttpResponseException(HttpStatusCode.NotFound);
+        //    }
+        //    return item;
+        //}
 
         [HttpGet]
         [Route("api/v3/products", Name = "getProductByCategoryv3")]
@@ -101,9 +101,9 @@ namespace ProductStore.Controllers
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
             return response;
         }
-        
+
         [HttpGet]
-        [Route("api/v3/products/{id:int}")]
+        [Route("api/v3/products/{id:int}", Name = "getProductByIdv3")]
         public IHttpActionResult GetProduct(int id)
         {
             var product = repository.Get(id);
@@ -115,7 +115,7 @@ namespace ProductStore.Controllers
 
             return Ok(product);
         }
-        
+
         [HttpPut]
         [Route("api/v3/products/{id:int}")]
         public void PutProduct(int id, Product product)
