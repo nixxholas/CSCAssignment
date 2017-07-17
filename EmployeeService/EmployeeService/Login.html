@@ -72,7 +72,7 @@
             getAccessToken();
 
             $('#btnGoogleLogin').click(function () {
-                window.location.href = "api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A50564%2FLogin.html";
+                window.location.href = "api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=" + encodeURIComponent(window.location.href);
             });
 
             $('#linkClose').click(function () {
